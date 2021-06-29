@@ -1,16 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Provider} from 'react-redux'
 import {Router} from 'react-router-dom'
 import history from './history'
-import store from './store'
 import App from './App'
+import { theme } from './theme/theme'
+import { ThemeProvider } from '@material-ui/core/styles';
 
 ReactDOM.render(
-  <Provider store={store}>
     <Router history={history}>
+      <ThemeProvider theme={theme}>
       <App />
-    </Router>
-  </Provider>,
+      </ThemeProvider>
+    </Router>,
   document.getElementById('app')
 )

@@ -1,47 +1,35 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  BottomNavigation,
+ BottomNavigationAction,
+} from '@material-ui/core'
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import AnnouncementOutlinedIcon from '@material-ui/icons/AnnouncementOutlined';
+import TurnedInNotOutlinedIcon from '@material-ui/icons/TurnedInNotOutlined';
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>FS-App-Template</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
-)
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    isLoggedIn: !!state.auth.id
-  }
+function Navbar() {
+  const classes = useStyles()
+  const [value, setValue] = useState('News')
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+  return(
+    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+      <BottomNavigationAction label="News" icon={<HomeOutlinedIcon fontSize="large"/>} />
+      <BottomNavigationAction label="Resources" icon={<AnnouncementOutlinedIcon fontSize="large"/>} />
+      <BottomNavigationAction label="Saved" icon={<TurnedInNotOutlinedIcon fontSize="large"/>} />  
+    </BottomNavigation>
+  )
 }
+const useStyles = makeStyles({
+  root: {
+    width: 300,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+});
 
-const mapDispatch = dispatch => {
-  return {
-    handleClick() {
-      dispatch(logout())
-    }
-  }
-}
-
-export default connect(mapState, mapDispatch)(Navbar)
+export default Navbar
