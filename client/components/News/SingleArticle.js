@@ -25,6 +25,7 @@ const useStyles = makeStyles({
     },
     headline: {
         fontSize: 28,
+        fontWeight: 'bold',
     },
     description: {
         fontWeight: '500'
