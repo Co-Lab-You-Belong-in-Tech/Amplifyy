@@ -1,23 +1,24 @@
-import React, {Component} from 'react'
+import React, {useEffect} from 'react'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
-import Home from './components/Home';
+import { Feed, SingleArticle, Interests, Resources, Splash } from './components'
 
 /**
  * COMPONENT
  */
-class Routes extends Component {
-
-  render() {
+function Routes(props) {
 
     return (
       <div>
           <Switch>
-            <Route path='/' exact component={Home} />
-
+            <Route exact path='/' component={Splash} />
+            <Route exact path='/Home' component={Feed} />
+            <Route exact path='/Start' component={Interests} />
+             <Route exact path='/Resources' component={Resources}/>
+            <Route path='/article/:articleid' component={SingleArticle} />
           </Switch>
       </div>
     )
-  }
+  
 }
 
 /**

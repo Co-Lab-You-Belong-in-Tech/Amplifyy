@@ -2,13 +2,26 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
+const session = require('express-session')
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const {db} = require('./db')
+const sessionStore = new SequelizeStore({db})
 module.exports = app
 
 // logging middleware
 app.use(morgan('dev'))
-
+    
 // body parsing middleware
 app.use(express.json())
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'my best friend is Cody',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false //CHANGED FALSE TO TRUE --> KEEPS SESSION ID THE SAME
+  })
+)
 
 // auth and api routes
 app.use('/api', require('./api'))
