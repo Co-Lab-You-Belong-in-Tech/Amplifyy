@@ -69,7 +69,7 @@ const searchQuery = {
       'x-rapidapi-host': process.env.API_URI,
     },
   };
-function Feed(props) {
+function Feed() {
     const classes = useStyles();
     const {userInterests, getUser, newSession} = useUserInterestContext()
     const [loading, setLoading] = useState(true)
