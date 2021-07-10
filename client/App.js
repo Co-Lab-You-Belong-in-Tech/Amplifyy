@@ -7,7 +7,6 @@ import Routes from './Routes'
 
 const App = () => {
   const location = useLocation()
-  log("APP LOCATION", location)
   const navBarFreeLocations = {
     "/" : "/",
     "/Start" : "/Start"
