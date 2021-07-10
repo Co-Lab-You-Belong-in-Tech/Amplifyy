@@ -33,7 +33,6 @@ function Recap(props) {
     const history = useHistory()
     const {selectedInterests} = props
     const classes = useStyles()
-    console.log("window", window)
 
     function handleSubmit(event) {
         event.preventDefault()

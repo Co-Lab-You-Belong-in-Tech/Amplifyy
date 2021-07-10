@@ -61,7 +61,6 @@ const useStyles = makeStyles({
 })
 async function fetchResources() {
     let {data} = await axios.get('/api/resources')
-    console.log("Data.category", data.category)
     data.sort((a, b) => {
         return a.category.id - b.category.id
     })
@@ -91,7 +90,6 @@ function Resources() {
  
     
     if(!loading) {
-        console.log("RESOURCE NAME >>>>", resources[0].category.name)
         let curCategory = resources[0].category.name
         return(
             <div className={classes.root}>
@@ -101,8 +99,6 @@ function Resources() {
                
                  if(index == 0 || resource.category.name !== curCategory) {
                      curCategory = resource.category.name
-                     console.log("resource.category.name", resource.category.name)
-                     console.log("previous one? maybe?",)
                      let counter = 0
                      return (
                          <>

@@ -74,7 +74,6 @@ function Feed() {
     const {userInterests, getUser, newSession} = useUserInterestContext()
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState(null)
-    console.log("FEED", userInterests, newSession)
     async function getTopNews() {
         await axios
           .request(searchQuery)
@@ -100,8 +99,6 @@ function Feed() {
         }, 5000);
       }, []);
       useEffect(() => {
-        console.log("useEffect2", userInterests)
-        console.log("useEffect2", newSession)
  
       }, [userInterests, newSession])
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   BottomNavigation,
@@ -12,24 +12,7 @@ import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';
 import TurnedInNotIcon from '@material-ui/icons/TurnedInNot';
 import ShareIcon from '@material-ui/icons/Share';
 
-// const useStyles = makeStyles((theme) => {
-//   return(
-//     {
-//       root: {
-//         width: '100%',
-//         position: "fixed",
-//         bottom: theme.spacing(0)
-//       },
-//       share: {
-//         backgroundColor: 'white',
-//         position: 'fixed',
-//         bottom: theme.spacing(0),
-//         width: '100%',
-//       }
 
-//     }
-//   )
-// })
 const useStyles = makeStyles(theme => {
   return({
     root: {
@@ -58,9 +41,6 @@ const useStyles = makeStyles(theme => {
 function Navbar(props) {
   const classes = useStyles()
   const location = useLocation()
-  const paramsHooks = useParams()
-  console.log("LOCATIONNNN", location)
-  console.log("PROPS NAVBARRRRRRRRR", paramsHooks)
   const [value, setValue] = useState('News')
   const handleChange = (event, newValue) => {
     setValue(newValue);

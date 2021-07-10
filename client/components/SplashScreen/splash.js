@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => {
   })
 function Splash(props) {
     const classes = useStyles()
-    console.log(props)
     const [loading, setLoading] = useState(true)
     const {getUser} = useUserInterestContext()
     function handleClick() {

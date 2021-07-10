@@ -16,13 +16,10 @@ export function UserInterestProvider({children}) {
 
         try {
             let response = await axios.get('/api/users')
-            console.log("GETTING USER")
             if (response.data.interests && response.data.interests.length > 0) {
                 setUserInterests(response.data.interests)
-                console.log(" if statement user interests", userInterests)
                 setNewSession(false)
             } else {
-                console.log("response.data", response.data)
                 setUserInterests([])
             }  
             setLoading(false)

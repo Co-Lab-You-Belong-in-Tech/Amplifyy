@@ -40,7 +40,6 @@ function SingleArticle(props) {
     const classes = useStyles()
     const article = props.location.article.article
     const date = article.datePublished.slice(0, 10)
-    console.log("ARTICLE??", props.location.article)
     return (
         <>
         <div className={classes.back}>
