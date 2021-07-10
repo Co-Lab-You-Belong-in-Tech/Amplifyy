@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {Card, CardContent, Typography, Grid, IconButton, CardActions, CardActionArea} from '@material-ui/core'
+import {Card, CardContent, Typography, Grid, CardActionArea} from '@material-ui/core'
 import LaunchIcon from '@material-ui/icons/Launch';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link} from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
@@ -33,11 +34,6 @@ const useStyles = makeStyles({
         alignItems: 'center'
         // margin: 'auto'
     },
-    odd: {
-        backgroundColor: "#FDFFFC",
-        color: "#0D99FF",
-        border: 'solid 1px #0D99FF'
-    },
     description: {
         fontSize: 11,
         maxHeight: '45pt',
@@ -46,7 +42,14 @@ const useStyles = makeStyles({
         whiteSpace: 'no-wrap',
         overflow: 'hidden',
         fontWeight: '400',
+        textDecoration: 'none',
     },
+    odd: {
+        backgroundColor: "#FDFFFC",
+        color: "#0D99FF",
+        border: 'solid 1px #0D99FF'
+    },
+
 
     btn: {
     //    display: 'block',
@@ -115,18 +118,17 @@ function Resources() {
                                             <Grid key={item.id} item spacing={0} >
                                             <Card className={`${classes.card} ${classes.odd}`} elevation={0}>
                                                <CardContent >
-                                                <Typography variant="subtitle2">
+                                                <Typography style={{fontWeight: 'bold'}} variant="subtitle2">
                                                 {item.name}
                                                 </Typography>
-                                                <Typography className={classes.description}>{item.description}</Typography>
-                                                
+                                                <a href={`${item.url}`} rel="noreferrer">
                                                 <CardActionArea>
-                                                    <div>
-                                                <IconButton  href={item.url} >
-                                                    <LaunchIcon className={classes.btn} />
-                                                    </IconButton>
-                                                    </div>
-                                            </CardActionArea>
+                                                <Typography style={{color: '#0D99FF'}} className={classes.description}>{item.description}</Typography>
+                                                   
+                                                    <LaunchIcon  fontSize='inherit' style={{color: '#0D99FF', marginTop: 5, alignSelf: 'flex-end'}}/>
+                                        
+                                               </CardActionArea>
+                                               </a>
                                             </CardContent>
                                             </Card>
                                             </Grid>
@@ -138,16 +140,17 @@ function Resources() {
                                         <Grid key={item.id} item spacing={0}>
                                         <Card className={classes.card} elevation={0}>
                                            <CardContent >
-                                            <Typography variant="subtitle2">
+                                            <Typography style={{fontWeight: 'bold'}}  variant="subtitle2">
                                             {item.name}
-                                            </Typography>
-                                            <Typography className={classes.description} variant="body1">{item.description}</Typography>
-                                           
-                                           <CardActions>
-                                                <IconButton href={item.url}  >
-                                                    <LaunchIcon className={classes.btn} />
-                                                    </IconButton>
-                                            </CardActions>
+                                            </Typography>                                           
+                                            <a href={`${item.url}`} rel="noreferrer">
+                                                <CardActionArea>
+                                                <Typography style={{color: 'white'}}className={classes.description}>{item.description}</Typography>
+                                                
+                                                <LaunchIcon  fontSize='inherit' style={{color: 'white', marginTop: 5}}/>
+                                
+                                               </CardActionArea>
+                                               </a>
                                             </CardContent>
                                         </Card>
                                         </Grid>

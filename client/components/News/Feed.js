@@ -112,8 +112,8 @@ function Feed() {
     } else if(!newSession) {
         return(
             <div className={classes.background}>
-                <Typography variant="h4" color="primary" className={classes.content}>Today's</Typography>
-                <Typography variant="h4" color="primary" className={classes.content}>Top Stories</Typography>
+                <Typography variant="h5" color="primary" style={{fontWeight: 'bold'}} className={classes.content}>Today's</Typography>
+                <Typography variant="h5" color="primary" style={{fontWeight: 'bold'}} className={classes.content}>Top Stories</Typography>
                 {/* <Typography variant="body2">{today.substring(0, 10)}</Typography> */}
                 <Typography variant="body2" className={classes.content} style={{color:'grey'}}>Curated based on interests</Typography>
                 {data.map((article, index) => {
