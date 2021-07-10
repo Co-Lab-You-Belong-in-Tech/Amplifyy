@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'
-import {API_KEY, API_URI} from './secrets'
+// import {API_KEY, API_URI} from './secrets'
 import {CircularProgress, Typography, CardMedia, CardContent, Card, CardActionArea} from '@material-ui/core'
 import { useUserInterestContext } from '../../contexts/userInterestContext';
 
@@ -65,8 +65,8 @@ const searchQuery = {
       toPublishedDate: 'null',
     },
     headers: {
-      'x-rapidapi-key': API_KEY,
-      'x-rapidapi-host': API_URI,
+      'x-rapidapi-key': process.env.API_KEY,
+      'x-rapidapi-host': process.env.API_URI,
     },
   };
 function Feed(props) {
